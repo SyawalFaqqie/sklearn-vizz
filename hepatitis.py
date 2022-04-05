@@ -125,9 +125,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.heatmap(
     data=cm
-    x="Predicted"
-    y="Truth"
 )
-plt.title("Confusion Matrix Heatmap")
+plt.xlabel("Predicted")
+plt.ylabel('Truth')
 st.pyplot(plt.gcf())
 
