@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-import matplotlib.pyplot as plt
+
 
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
@@ -120,4 +120,8 @@ cm=confusion_matrix(y_test,y_pred)
 AS=accuracy_score(y_test,y_pred)
 st.write('Accuracy score is: ',AS)
 st.write(cm)
+
+import seaborn as sns
+heat=sns.heatmap(cm,annot=True)
+st.pyplot(heat)
 
