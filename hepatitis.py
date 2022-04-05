@@ -72,7 +72,7 @@ def add_parameter_ui(clf_name):
   else:
     penalty=st.sidebar.select_slider('penalty', 'none', 'l2', 'l1', 'elasticnet',value='l2')
     params['penalty']=penalty
-return params
+ return params
 params = add_parameter_ui(classifier_name)
 
 def get_classifier(clf_name, params):
@@ -87,7 +87,7 @@ def get_classifier(clf_name, params):
             max_depth=params['max_depth'], random_state=random_state)
     else:
         clf = LogisticRegression(penalty=params['penalty'])
-return clf
+  return clf
 
 clf = get_classifier(classifier_name, params)
 #___________________________________________________________________________________________________________________________________________________________________#
