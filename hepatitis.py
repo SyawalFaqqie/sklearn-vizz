@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import seaborn as sns
 
 import matplotlib.pyplot as plt
 
@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
 from sklearn.impute import SimpleImputer
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix,accuracy_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
 from sklearn.decomposition import PCA
@@ -109,12 +109,17 @@ X_test_scaled = scaler.transform(X_test)
 
 clf.fit(X_train_scaled, y_train)
 y_pred = clf.predict(X_test_scaled)
-st.write('## 2:Classifier: ',classifier_name)
+st.write('## 3:Classifier: ',classifier_name)
 st.write('Classification Report')
 
 report=classification_report(y_test,y_pred,output_dict=True)
 data=pd.DataFrame(report).transpose()
 st.write(data)
 
-
+st.write('## 4:Confusion Matrix Heatmap: ',classifier_name)
+model=clf
+pred=clf.pred(X_test)
+cm=confusion_matrix(y_test,pred)
+AS=accuracy_score(y_test,pred)
+st.write('Accuracy score is: ',AS)
 
