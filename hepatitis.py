@@ -79,6 +79,8 @@ def add_parameter_ui(clf_name):
     max_depth=st.sidebar.slider('max_depth',2,15,value=5)
     params['max_depth']=max_depth
   else:
+    max_iter=st.sidebar.slider('max_iter',1,999,value=100)
+    params['max_iter']=max_iter
     
   return params
 params = add_parameter_ui(classifier_name)
@@ -94,7 +96,7 @@ def get_classifier(clf_name, params):
         clf = RandomForestClassifier(n_estimators=params['n_estimators'], 
             max_depth=params['max_depth'],criterion="entropy", random_state=random_state)
     else:
-        clf = LogisticRegression(random_state=random_state)
+        clf = LogisticRegression(max_iter=params['max_iter'],random_state=random_state)
     return clf
 
 clf = get_classifier(classifier_name, params)
