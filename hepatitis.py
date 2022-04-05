@@ -124,7 +124,7 @@ st.write(cm)
 import matplotlib.pyplot as plt
 import seaborn as sns
 st.write("## 5: Confusion Matrix Heatmap")
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 sns.heatmap(cm,annot=True, ax=ax)
 st.write(fig)
 
