@@ -116,9 +116,8 @@ data=pd.DataFrame(report).transpose()
 st.write(data)
 
 st.write('## 4:Confusion Matrix Heatmap: ',classifier_name)
-pred=clf.predict(X_test)
-cm=confusion_matrix(y_test,pred)
-AS=accuracy_score(y_test,pred)
+cm=confusion_matrix(y_test,y_pred)
+AS=accuracy_score(y_test,y_pred)
 st.write('Accuracy score is: ',AS)
 st.write(cm)
 
