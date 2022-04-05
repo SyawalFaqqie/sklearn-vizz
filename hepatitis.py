@@ -16,16 +16,15 @@ from sklearn.metrics import classification_report
 
 st.title("Machine Learning - ")
 st.sidebar.write("""" This is a demo app using libraries such as Streamlit, sklearn etc""")
-st.sidebar.write(""" This [data set](https://www.kaggle.com/datasets/fedesoriano/hepatitis-c-dataset) contains laboratory values of blood donors and Hepatitis C patients""")
-st.sidebar.write("""For more information please contact: """")
-st.sidebar.write("""[Mohd Noor Syawal Faqqie](https://www.linkedin.com/in/mohd-noor-syawal-faqqie-abdullah-b8764b236/)""")
+st.sidebar.write("This [data set](https://www.kaggle.com/datasets/fedesoriano/hepatitis-c-dataset) contains laboratory values of blood donors and Hepatitis C patients")
+st.sidebar.write("For more information please contact: ")
+st.sidebar.write("[Mohd Noor Syawal Faqqie](https://www.linkedin.com/in/mohd-noor-syawal-faqqie-abdullah-b8764b236/)")
 
 #___________________________________________________________________________________________________________________________________________________________________#
 st.write("""1. The dataframe""")
 df=pd.read_csv('HepatitisCdata.csv')
-st.dataframe('df')
-df=pd.read_csv('HepatitisCdata.csv')
-
+dataf=df.head()
+st.dataframe('dataf')
 
 imputer = SimpleImputer(missing_values=np.nan,strategy="median")
 imputer.fit(df.iloc[:,[4,5,6,10,13]])
@@ -40,7 +39,7 @@ X=df.iloc[:,2:].values
 y=df.iloc[:,1].values
 
 #___________________________________________________________________________________________________________________________________________________________________#
-st.write("## 1: Summary of y varible")
+st.write("## 2: Summary of y varible")
 yclass=len(np.unique(y))
 st.write('Number of classes: ',yclass)
 
