@@ -22,7 +22,7 @@ st.sidebar.write("This [data set](https://www.kaggle.com/datasets/fedesoriano/he
 st.sidebar.write("For more information please contact: ")
 st.sidebar.write("[Mohd Noor Syawal Faqqie](https://www.linkedin.com/in/mohd-noor-syawal-faqqie-abdullah-b8764b236/)")
 
-#___________________________________________________________________________________________________________________________________________________________________#
+
 import pandas as pd
 hepatitis =pd.read_csv(r'https://raw.githubusercontent.com/SyawalFaqqie/sklearn-vizz/blob/main/HepatitisCdata.csv')
 df=pd.read_csv('HepatitisCdata.csv')
@@ -43,7 +43,6 @@ st.write("## 1: Summary (X variables)")
 st.write('Shape of predictors @ X variables :', X.shape)
 st.write('Summary of predictors @ X variables:', pd.DataFrame(X).describe())
 
-#___________________________________________________________________________________________________________________________________________________________________#
 st.write("## 2: Summary of y varible")
 yclass=len(np.unique(y))
 st.write('Number of classes: ',yclass)
@@ -95,7 +94,7 @@ def get_classifier(clf_name, params):
     return clf
 
 clf = get_classifier(classifier_name, params)
-#___________________________________________________________________________________________________________________________________________________________________#
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_data_ratio, random_state=random_state)
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
