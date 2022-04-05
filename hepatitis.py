@@ -70,7 +70,7 @@ def add_parameter_ui(clf_name):
   elif clf_name=='KNN':
     K=st.sidebar.slider('K',1,15,value=5)
     params['K']=K
-  else clf_name=='Random Forest Classifier':
+  else clf_name:
     n_estimators=st.sidebar.slider('n_estimators',1,100,value=10)
     params['n_estimators']=n_estimators
     max_depth=st.sidebar.slider('max_depth',2,15,value=5)
@@ -89,7 +89,7 @@ def get_classifier(clf_name, params):
         clf = RandomForestClassifier(n_estimators=params['n_estimators'], 
             max_depth=params['max_depth'], random_state=random_state)
     else:
-        clf = LogisticRegression(penalty=params['penalty'])
+        clf = LogisticRegression()
     return clf
 
 clf = get_classifier(classifier_name, params)
