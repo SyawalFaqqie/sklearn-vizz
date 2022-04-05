@@ -39,13 +39,6 @@ df['Sex'] = labelencoder1.fit_transform(df['Sex'])
 X=df.iloc[:,2:].values
 y=df.iloc[:,1].values
 
-st.write("## 1: Summary (X variables)")
-st.write('Shape of predictors @ X variables :', X.shape)
-st.write('Summary of predictors @ X variables:', pd.DataFrame(X).describe())
-
-st.write("## 2: Summary of y varible")
-yclass=len(np.unique(y))
-st.write('Number of classes: ',yclass)
 
 classifier_name = st.sidebar.selectbox(
     'Select classifier',
@@ -59,6 +52,16 @@ test_data_ratio = st.sidebar.slider('Select testing size or ratio',
 )
 
 random_state = st.sidebar.slider('Select random state', 1,9999,value=1234)
+
+st.write("## 1: Summary (X variables)")
+st.write('Shape of predictors @ X variables :', X.shape)
+st.write('Summary of predictors @ X variables:', pd.DataFrame(X).describe())
+
+st.write("## 2: Summary of y varible")
+yclass=len(np.unique(y))
+st.write('Number of classes: ',yclass)
+
+
 
 def add_parameter_ui(clf_name):
   params=dict()
