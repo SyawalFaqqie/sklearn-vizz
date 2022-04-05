@@ -1,9 +1,9 @@
-# sklearn-vizz
+# Hepatitis data
 
 
 This is a machine learning web app demo using Scikit-learn.
 
 For more info, please contact:
 
-[Dr. Yong Poh Yu](https://www.linkedin.com/in/yong-poh-yu/)
+[Mohd Noor Syawal Faqqie](https://www.linkedin.com/in/mohd-noor-syawal-faqqie-abdullah-b8764b236/)
 
