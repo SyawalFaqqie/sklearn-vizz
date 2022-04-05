@@ -26,7 +26,7 @@ st.sidebar.write("[Mohd Noor Syawal Faqqie](https://www.linkedin.com/in/mohd-noo
 st.write("""1. The dataframe""")
 df=pd.read_csv('HepatitisCdata.csv')
 dataf=df.head()
-st.dataframe('dataf')
+st.dataframe('df')
 
 imputer = SimpleImputer(missing_values=np.nan,strategy="median")
 imputer.fit(df.iloc[:,[4,5,6,10,13]])
