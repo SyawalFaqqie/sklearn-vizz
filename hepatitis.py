@@ -125,8 +125,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 st.write("## 5: Confusion Matrix Heatmap")
 fig, ax = plt.subplot()
-plt.xlabel('Predicted')
-plt.ylabel('Truth')
 sns.heatmap(cm,annot=True, ax=ax)
 st.write(fig)
 
