@@ -124,8 +124,8 @@ st.write(cm)
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-fig=plot.figure()
-sns.heatmap(cm,x='Predicted',y='Truth')
-st.pyplot(fig)
+fig, ax = plt.subplots()
+sns.heatmap(cm, ax=ax)
+st.write(fig)
 
 
