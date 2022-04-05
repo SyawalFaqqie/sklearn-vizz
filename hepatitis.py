@@ -73,10 +73,9 @@ def add_parameter_ui(clf_name):
     penalty=st.sidebar.select_slider('penalty', 'none', 'l2', 'l1', 'elasticnet',value='l2')
     params['penalty']=penalty
 return params
+params = add_parameter_ui(classifier_name)
 
-  params = add_parameter_ui(classifier_name)
-
-  def get_classifier(clf_name, params):
+def get_classifier(clf_name, params):
     clf = None
     if clf_name == 'SVM':
         clf = SVC(C=params['C'])
@@ -88,18 +87,17 @@ return params
             max_depth=params['max_depth'], random_state=random_state)
     else:
         clf = LogisticRegression(penalty=params['penalty'])
-   return clf
+return clf
 
 clf = get_classifier(classifier_name, params)
 #___________________________________________________________________________________________________________________________________________________________________#
- X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_data_ratio, random_state=random_state)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_data_ratio, random_state=random_state)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)    
 
-  scaler = StandardScaler()
-  X_train_scaled = scaler.fit_transform(X_train)
-  X_test_scaled = scaler.transform(X_test)    
-
-  clf.fit(X_train_scaled, y_train)
-  y_pred = clf.predict(X_test_scaled)
+clf.fit(X_train_scaled, y_train)
+y_pred = clf.predict(X_test_scaled)
 st.write('## 2:Classifier: ',classifier_name)
 st.write('Classification Report')
 
