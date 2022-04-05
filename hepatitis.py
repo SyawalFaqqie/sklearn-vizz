@@ -121,7 +121,13 @@ AS=accuracy_score(y_test,y_pred)
 st.write('Accuracy score is: ',AS)
 st.write(cm)
 
+import matplotlib.pyplot as plt
 import seaborn as sns
-heat=sns.heatmap(cm,annot=True)
-st.pyplot(heat)
+sns.heatmap(
+    data=cm
+    x="Predicted"
+    y="Truth"
+)
+plt.title("Confusion Matrix Heatmap")
+st.pyplot(plt.gcf())
 
