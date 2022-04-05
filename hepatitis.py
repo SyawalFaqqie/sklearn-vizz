@@ -72,7 +72,7 @@ def add_parameter_ui(clf_name):
   else:
     penalty=st.sidebar.select_slider('penalty', 'none', 'l2', 'l1', 'elasticnet',value='l2')
     params['penalty']=penalty
-  return params
+return params
 
   params = add_parameter_ui(classifier_name)
 
@@ -87,9 +87,8 @@ def add_parameter_ui(clf_name):
         clf = RandomForestClassifier(n_estimators=params['n_estimators'], 
             max_depth=params['max_depth'], random_state=random_state)
     else:
-
-
-    return clf
+        clf = LogisticRegression(penalty=params['penalty'])
+   return clf
 
 clf = get_classifier(classifier_name, params)
 #___________________________________________________________________________________________________________________________________________________________________#
