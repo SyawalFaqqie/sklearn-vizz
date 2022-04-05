@@ -14,6 +14,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
 from sklearn.decomposition import PCA
 from sklearn.metrics import classification_report
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
 
 
 st.title("Machine Learning - Classification")
@@ -65,23 +68,26 @@ st.write('Number of classes: ',yclass)
 def add_parameter_ui(clf_name):
   params=dict()
   if clf_name=='SVM':
-    C=st.sidebar.slider('C',0.01,10.0,value=1.0)
-    params['C']=C
+    C1=st.sidebar.slider('C',0.01,10.0,value=1.0)
+    params['C1']=C1
   elif clf_name=='KNN':
     K=st.sidebar.slider('K',1,15,value=5)
     params['K']=K
-  else:
+  elif clf_name == 'Random Forest Classifier'
     n_estimators=st.sidebar.slider('n_estimators',1,100,value=10)
     params['n_estimators']=n_estimators
     max_depth=st.sidebar.slider('max_depth',2,15,value=5)
     params['max_depth']=max_depth
+   else:
+    C2=st.sidebar.slider('C',0.01,10,value=1.0)
+    params['C2']=C2
   return params
 params = add_parameter_ui(classifier_name)
 
 def get_classifier(clf_name, params):
     clf = None
     if clf_name == 'SVM':
-        clf = SVC(C=params['C'],kernel="rbf")
+        clf = SVC(C1=params['C1'],kernel="rbf")
     elif clf_name == 'KNN':
         clf = KNeighborsClassifier(n_neighbors=params['K'],metric="minkowski",p=2)
     elif clf_name == 'Random Forest Classifier':
@@ -89,7 +95,7 @@ def get_classifier(clf_name, params):
         clf = RandomForestClassifier(n_estimators=params['n_estimators'], 
             max_depth=params['max_depth'],criterion="entropy", random_state=random_state)
     else:
-        clf = LogisticRegression()
+        clf = LogisticRegression(C2=params['C2'],random_state=random_state)
     return clf
 
 clf = get_classifier(classifier_name, params)
