@@ -24,7 +24,7 @@ st.sidebar.write("[Mohd Noor Syawal Faqqie](https://www.linkedin.com/in/mohd-noo
 
 #___________________________________________________________________________________________________________________________________________________________________#
 st.write("""1. The dataframe""")
-df=pd.read_csv('https://github.com/SyawalFaqqie/sklearn-vizz/blob/main/HepatitisCdata.csv')
+df=pd.read_csv(r'https://raw.githubusercontent.com/SyawalFaqqie/sklearn-vizz/blob/main/HepatitisCdata.csv')
 dataf=df.head()
 st.dataframe('dataf')
 
