@@ -117,8 +117,7 @@ st.write(data)
 
 st.write('## 4:Confusion Matrix Heatmap: ',classifier_name)
 model=clf
-pred=clf.pred(X_test)
+pred=model.pred(X_test)
 cm=confusion_matrix(y_test,pred)
-AS=accuracy_score(y_test,pred)
-st.write('Accuracy score is: ',AS)
+st.write(cm)
 
