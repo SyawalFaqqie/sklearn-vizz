@@ -81,13 +81,13 @@ params = add_parameter_ui(classifier_name)
 def get_classifier(clf_name, params):
     clf = None
     if clf_name == 'SVM':
-        clf = SVC(C=params['C'])
+        clf = SVC(C=params['C'],kernel="rbf")
     elif clf_name == 'KNN':
-        clf = KNeighborsClassifier(n_neighbors=params['K'])
+        clf = KNeighborsClassifier(n_neighbors=params['K'],metric="minkowski",p=2)
     elif clf_name == 'Random Forest Classifier':
         
         clf = RandomForestClassifier(n_estimators=params['n_estimators'], 
-            max_depth=params['max_depth'], random_state=random_state)
+            max_depth=params['max_depth'],criterion="entropy", random_state=random_state)
     else:
         clf = LogisticRegression()
     return clf
