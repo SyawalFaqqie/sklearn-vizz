@@ -70,7 +70,7 @@ def add_parameter_ui(clf_name):
   elif clf_name=='KNN':
     K=st.sidebar.slider('K',1,15,value=5)
     params['K']=K
-  else clf_name:
+  else:
     n_estimators=st.sidebar.slider('n_estimators',1,100,value=10)
     params['n_estimators']=n_estimators
     max_depth=st.sidebar.slider('max_depth',2,15,value=5)
