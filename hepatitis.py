@@ -17,15 +17,15 @@ from sklearn.metrics import classification_report
 
 
 st.title("Machine Learning - Classification")
-st.sidebar.write("""" This is a demo app using libraries such as Streamlit, sklearn etc""")
+st.sidebar.write(""" This is a demo app using libraries such as Streamlit, sklearn etc""")
 st.sidebar.write("This [data set](https://www.kaggle.com/datasets/fedesoriano/hepatitis-c-dataset) contains laboratory values of blood donors and Hepatitis C patients")
 st.sidebar.write("For more information please contact: ")
 st.sidebar.write("[Mohd Noor Syawal Faqqie](https://www.linkedin.com/in/mohd-noor-syawal-faqqie-abdullah-b8764b236/)")
 
 
 import pandas as pd
-hepatitis =pd.read_csv(r'https://raw.githubusercontent.com/SyawalFaqqie/sklearn-vizz/blob/main/HepatitisCdata.csv')
-df=pd.read_csv('HepatitisCdata.csv')
+df =pd.read_csv(r'https://raw.githubusercontent.com/SyawalFaqqie/sklearn-vizz/main/HepatitisCdata.csv')
+
 
 imputer = SimpleImputer(missing_values=np.nan,strategy="median")
 imputer.fit(df.iloc[:,[4,5,6,10,13]])
