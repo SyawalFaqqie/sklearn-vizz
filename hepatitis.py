@@ -24,8 +24,8 @@ st.sidebar.write("[Mohd Noor Syawal Faqqie](https://www.linkedin.com/in/mohd-noo
 
 #___________________________________________________________________________________________________________________________________________________________________#
 import pandas as pd
-df=pd.read_csv(r'https://raw.githubusercontent.com/SyawalFaqqie/sklearn-vizz/blob/main/HepatitisCdata.csv')
-
+hepatitis =pd.read_csv(r'https://raw.githubusercontent.com/SyawalFaqqie/sklearn-vizz/blob/main/HepatitisCdata.csv')
+df=pd.read_csv('HepatitisCdata.csv')
 
 imputer = SimpleImputer(missing_values=np.nan,strategy="median")
 imputer.fit(df.iloc[:,[4,5,6,10,13]])
