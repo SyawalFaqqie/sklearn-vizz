@@ -7,12 +7,14 @@ import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import LabelEncoder
+
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import confusion_matrix
-from sklearn.prepprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder
 from sklearn.decomposition import PCA
 from sklearn.metrics import classification_report
+
 
 st.title("Machine Learning - ")
 st.sidebar.write("""" This is a demo app using libraries such as Streamlit, sklearn etc""")
