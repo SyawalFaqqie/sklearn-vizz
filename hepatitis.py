@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import seaborn as sn
 
 import matplotlib.pyplot as plt
 
@@ -55,11 +56,11 @@ test_data_ratio = st.sidebar.slider('Select testing size or ratio',
 
 random_state = st.sidebar.slider('Select random state', 1,9999,value=1234)
 
-st.write("## 1: Summary (X variables)")
+st.write("## 1: Summary of X variables")
 st.write('Shape of predictors @ X variables :', X.shape)
 st.write('Summary of predictors @ X variables:', pd.DataFrame(X).describe())
 
-st.write("## 2: Summary of y varible")
+st.write("## 2: Summary of y variable")
 yclass=len(np.unique(y))
 st.write('Number of classes: ',yclass)
 
@@ -114,4 +115,6 @@ st.write('Classification Report')
 report=classification_report(y_test,y_pred,output_dict=True)
 data=pd.DataFrame(report).transpose()
 st.write(data)
+
+
 
