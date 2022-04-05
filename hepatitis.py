@@ -23,10 +23,9 @@ st.sidebar.write("For more information please contact: ")
 st.sidebar.write("[Mohd Noor Syawal Faqqie](https://www.linkedin.com/in/mohd-noor-syawal-faqqie-abdullah-b8764b236/)")
 
 #___________________________________________________________________________________________________________________________________________________________________#
-st.write("""1. The dataframe""")
+
 df=pd.read_csv(r'https://raw.githubusercontent.com/SyawalFaqqie/sklearn-vizz/blob/main/HepatitisCdata.csv')
-dataf=df.head()
-st.dataframe('dataf')
+
 
 imputer = SimpleImputer(missing_values=np.nan,strategy="median")
 imputer.fit(df.iloc[:,[4,5,6,10,13]])
@@ -39,6 +38,10 @@ df['Sex'] = labelencoder1.fit_transform(df['Sex'])
 
 X=df.iloc[:,2:].values
 y=df.iloc[:,1].values
+
+st.write("## 1: Summary (X variables)")
+st.write('Shape of predictors @ X variables :', X.shape)
+st.write('Summary of predictors @ X variables:', pd.DataFrame(X).describe())
 
 #___________________________________________________________________________________________________________________________________________________________________#
 st.write("## 2: Summary of y varible")
