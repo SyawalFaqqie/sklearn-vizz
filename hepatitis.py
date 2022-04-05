@@ -123,7 +123,7 @@ st.write(cm)
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-st.write("## 5: Heatmap)
+st.write("## 5: Heatmap")
 fig, ax = plt.subplots()
 sns.heatmap(cm,x='Predicted',y='Truth',annot=True, ax=ax)
 st.write(fig)
